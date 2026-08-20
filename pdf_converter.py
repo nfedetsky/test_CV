@@ -1,14 +1,14 @@
 import os
-import time
+import time # не используется
 import psutil
 from pathlib import Path
 from docx2pdf import convert
 
 def cnv (conv_path: str):
-    root_dir = conv_path
-    output_dir = input_dir / 'Output'
+    root_dir = Path(conv_path)
+    output_dir = root_dir / 'Output'
     converted_dirs = []
-    for dirpath, dirnames, filenames in os.walk(output_dir):
+    for dirpath, dirnames, filenames in os.walk(root_dir):
         if 'Output' in Path(dirpath).parts:
             continue
 
